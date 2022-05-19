@@ -16,7 +16,7 @@
     <section>
         <h1>Calculadora CLT</h1>
         <h3>Salário líquido</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sint architecto quis eos. In voluptatem, fugit voluptatum vero commodi facilis enim! Doloremque veniam autem magni nostrum nulla vel at quaerat?</p>
+        <p>O cálculo do salário líquido leva em consideração os descontos de alíquotas de INSS, conforme tabela com faixas de acordo com o salário bruto, bem como as faixas de base de cálculos do IRPF.</p>
         
         
         <label for="salario">Salário</label>
@@ -32,6 +32,37 @@
 
         <div id="resultado"></p>
                     
+    </section>
+
+    <section>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Parcelas</th>
+                    <th>Valores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Salário Bruto</td>
+                    <td id="salbruto">0,00</td>
+                </tr>
+                <tr>
+                    <td>Desconto do INSS</td>
+                    <td>0,00</td>
+                </tr>
+                <tr>
+                    <td>Desconto do IRPF</td>
+                    <td>0,00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Salário líquido</td>
+                    <td>0,00</td>
+                </tr>
+            </tfoot>
+        </table>
     </section>
 
     <script src="js/calculadora.js"></script>

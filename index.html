@@ -28,44 +28,60 @@
         <label for="dependentes">Dependentes</label>
         <input type="number" id="dependentes" name="descontos" class="textbox"><br>
 
-        <input type="button" value="Calcular" class="button" onclick="calcular()">
+        <input type="button" value="Calcular" class="button_large" onclick="calcular()">
+        <input type="button" value="Limpar" class="button_small" onclick="limpar()">
 
         <div id="resultado"></p>
                     
     </section>
 
     <section>
-        <table class="content-table">
+        <table class="content-table" id="data">
             <thead>
                 <tr>
                     <th>Parcelas</th>
+                    <th>Alíquota Real</th>
                     <th>Valores</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Salário Bruto</td>
+                    <td></td>
                     <td id="salbruto">0,00</td>
                 </tr>
                 <tr>
                     <td>Desconto do INSS</td>
-                    <td>0,00</td>
+                    <td id="inss_aliquota"></td>
+                    <td id="inss">0,00</td>
+                </tr>
+                <tr>
+                    <td>Desconto Dependentes</td>
+                    <td></td>
+                    <td id="desconto_dependente">0,00</td>
+                </tr>
+                <tr>
+                    <td>Base para IRPF</td>
+                    <td></td>
+                    <td id="irpf">0,00</td>
                 </tr>
                 <tr>
                     <td>Desconto do IRPF</td>
-                    <td>0,00</td>
+                    <td></td>
+                    <td id="irpf">0,00</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td>Salário líquido</td>
+                    <td></td>
                     <td>0,00</td>
                 </tr>
             </tfoot>
         </table>
     </section>
 
-    <script src="js/calculadora.js"></script>
+    <script src="calculadora.js"></script>
 
 </body>
 </html>

@@ -57,22 +57,38 @@ label {
     color: #121212;
  }
  
- .button {
+ .button_large, .button_small {
     border: 1px solid #646464;
     background-color: #18A4B5;
     outline:0;
     height:30px; 
     margin: 5px 0;
-    width: 100%;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
     color: white;
  }
 
+ .button_large:active, .button_small:active {
+    background-color: #0B4950;
+    font-weight: bold;
+}
+
+ .button_large {
+     width: 79%;
+ }
+
+ .button_small {
+     width: 19%;
+ }
+
  #resultado {
      margin-top: 50px;
  }
+
+#data {
+    display: none;
+}
 
  .content-table {
      width: 100%;
@@ -82,6 +98,10 @@ label {
      overflow: hidden;
      margin: 25px 0;
      font-size: 0.9em;
+ }
+
+ .content-table tr td:nth-child(2), .content-table tr td:nth-child(3) {
+    text-align: right;
  }
 
 .content-table th,
@@ -114,5 +134,4 @@ label {
     background-color: #18A4B5;
     border-top: 2px solid #0B4950;
     border-bottom: 2px solid #0B4950;
-    
 }

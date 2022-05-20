@@ -5,77 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora CLT</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header>
-
-    </header>
-
     <section>
         <h1>Calculadora CLT</h1>
         <h3>Salário líquido</h3>
         <p>O cálculo do salário líquido leva em consideração os descontos de alíquotas de INSS, conforme tabela com faixas de acordo com o salário bruto, bem como as faixas de base de cálculos do IRPF.</p>
-        
-        
+                
         <label for="salario">Salário</label>
-        <input type="number" id="salario" name="salario" class="textbox"><br>
+        <input type="number" id="input_salary" name="salario" class="textbox"><br>
         
         <label for="descontos">Descontos</label>
-        <input type="number" id="descontos" name="descontos" class="textbox"><br>
+        <input type="number" id="input_discount" name="descontos" class="textbox"><br>
 
         <label for="dependentes">Dependentes</label>
-        <input type="number" id="dependentes" name="descontos" class="textbox"><br>
+        <input type="number" id="input_dependent" name="dependentes" class="textbox"><br>
 
-        <input type="button" value="Calcular" class="button_large" onclick="calcular()">
-        <input type="button" value="Limpar" class="button_small" onclick="limpar()">
+        <input type="button" value="Calcular" class="button_large" onclick="check()">
+        <input type="button" value="Limpar" class="button_small" onclick="clear()">
 
-        <div id="resultado"></p>
-                    
+        <div id="error_msg"></div>
     </section>
 
     <section>
-        <table class="content-table" id="data">
+        <table class="content-table" id="show_table">
             <thead>
                 <tr>
                     <th>Parcelas</th>
-                    <th>Alíquota Real</th>
+                    <th>Percentual</th>
                     <th>Valores</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Salário Bruto</td>
-                    <td></td>
-                    <td id="salbruto">0,00</td>
+                    <td id="show_gross_salary_percent"></td>
+                    <td id="show_gross_salary">0,00</td>
                 </tr>
                 <tr>
-                    <td>Desconto do INSS</td>
-                    <td id="inss_aliquota"></td>
-                    <td id="inss">0,00</td>
+                    <td>Descontos em folha</td>
+                    <td id="show_discounts_percent"></td>
+                    <td id="show_discounts">0,00</td>
                 </tr>
                 <tr>
-                    <td>Desconto Dependentes</td>
-                    <td></td>
-                    <td id="desconto_dependente">0,00</td>
+                    <td>Contribuição INSS</td>
+                    <td id="show_inss_percent"></td>
+                    <td id="show_inss">0,00</td>
                 </tr>
                 <tr>
-                    <td>Base para IRPF</td>
-                    <td></td>
-                    <td id="irpf">0,00</td>
+                    <td>Desconto do IRRF</td>
+                    <td id="show_irrf_percent"></td>
+                    <td id="show_irrf">0,00</td>
                 </tr>
                 <tr>
-                    <td>Desconto do IRPF</td>
-                    <td></td>
-                    <td id="irpf">0,00</td>
+                    <td>Total de descontos</td>
+                    <td id="show_total_discounts_percent"></td>
+                    <td id="show_total_discounts">0,00</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td>Salário líquido</td>
-                    <td></td>
-                    <td>0,00</td>
+                    <td id="show_net_salary_percent"></td>
+                    <td id="show_net_salary">0,00</td>
                 </tr>
             </tfoot>
         </table>

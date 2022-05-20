@@ -23,8 +23,8 @@ h1 {
 }
 
 h3 {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 
 label {
@@ -86,7 +86,7 @@ label {
      margin-top: 50px;
  }
 
-#data {
+#show_table {
     display: none;
 }
 
@@ -96,7 +96,7 @@ label {
      border-radius: 5px 5px 0 0;
      box-shadow: 0 0 15px #0B4950;
      overflow: hidden;
-     margin: 25px 0;
+     margin-top: 30px;
      font-size: 0.9em;
  }
 

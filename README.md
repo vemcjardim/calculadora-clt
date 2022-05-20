@@ -4,12 +4,12 @@
 Live Demo: http://calculadoraclt.rf.gd/
 
 
-This labor calculator returns the net salary of a company emploee.
+This labor calculator returns the net salary of a company employee.
 
 In Brazil, to calcule companies employees net salary, first you need to calculate INSS contribution and IRRF fee, in a complex calculation.
 
 
-### INSS Contribution
+## INSS Contribution
 
 There are some ranges and rates
 
@@ -20,7 +20,7 @@ Range 4 From 3641.04 to 7087.22 =>  14%
 
 If gross salary pass more than a range, you must apply rates for each range, like this:
 
-Lets say a emploee makes 3000 BRL per month:
+Lets say a employee makes 3000 BRL per month:
 
 INSS:
 90.90  for Range 1 (1212 * 7.5%) +
@@ -29,7 +29,7 @@ INSS:
 Total 269
 
 
-### IRRF fee
+## IRRF fee
 
 More ranges and rates... and deductions
 
@@ -44,10 +44,10 @@ IRRF Base = 3000 - 269 (INSS) = 2731, so Range 2
 IRRF = (2731 * 7.5%) - 142.80 = 62.02
 
 
-### Net Salary
+## Net Salary
 
 Net Salary: 3000 - 269 (INSS) - 62.02 (IRRF) = 2668.97
 
-If emploee has other legal deductions on its payroll, like child support, it is deducted directly from gross salary.
+If employee has other legal deductions on its payroll, like child support, it is deducted directly from gross salary.
 
-If emploee has child or legal dependents, 189.59 is deducted from IRRF base, per dependent.
+If employee has child or legal dependents, 189.59 is deducted from IRRF base, per dependent.

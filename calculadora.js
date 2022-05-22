@@ -21,8 +21,8 @@ function check() {
 // Calculates net salary
 function compute() {
     // Hides error message and shows table with results
-    //element('error_msg').style.display = 'none'
-    //element('show_table').style.display = 'table'
+    element('error_msg').style.display = 'none'
+    element('show_table').style.display = 'table'
     
     // Gets values from inputs
     let input_discount = element('input_discount')
@@ -34,31 +34,18 @@ function compute() {
     input_dependent = Number(input_dependent.value)
 
     // Makes INSS ranges
-    //let inss_range = [1212.00, 2427.35, 3641.03, 7087.22]
-    //let irrf_range = [1903.98, 2826.65, 3751.05, 4664.68]
-    const inssrange1 = {min: 0,       max: 1212.00, rate:  7.5, deduction:  0}
-    const inssrange2 = {min: 1212.01, max: 2427.35, rate:  9.0, deduction: 90.90}
+    const inssrange1 = {min: 0,       max: 1212.00, rate:  7.5, deduction:   0.00}
+    const inssrange2 = {min: 1212.01, max: 2427.35, rate:  9.0, deduction:  90.90}
     const inssrange3 = {min: 2427.36, max: 3641.03, rate: 12.0, deduction: 200.28}
     const inssrange4 = {min: 3641.04, max: 7087.22, rate: 14.0, deduction: 345.92}
     const inssrange5 = {min: 7087.23,               rate: 14.0, deduction: 828.39}
-
     
     // Makes IRRF ranges
-    const irrfange1 = {min:       0, max: 1903.98, rate:    0, deduction: 0}
-    const irrfange2 = {min: 1903.99, max: 2826.65, rate:  7.5, deduction: 142.80}
-    const irrfange3 = {min: 2826.66, max: 3751.05, rate: 15.5, deduction: 354.80}
-    const irrfange4 = {min: 3751.06, max: 4664.68, rate: 22.5, deduction: 636.13}
-    const irrfange5 = {min: 4664.69,               rate: 27.5, deduction: 869.36}
-
-    const inssrange = [0, inssrange1, inssrange2, inssrange3, inssrange4]
-
-    // Makes rates
-    //let inss_rate = [7.5,  9.0, 12.0, 14.0]
-    //let irrf_rate = [0, 7.5, 15.0, 22.5, 27.5]
-
-    // Makes deductions
-    //let inss_deduction = [90.90,  109.38, 145.64, 482.46]
-    //let irrf_deduction = [0, 142.80, 354.80, 636.13, 869.36]
+    const irrfrange1 = {min:       0, max: 1903.98, rate:    0, deduction:   0.00}
+    const irrfrange2 = {min: 1903.99, max: 2826.65, rate:  7.5, deduction: 142.80}
+    const irrfrange3 = {min: 2826.66, max: 3751.05, rate: 15.5, deduction: 354.80}
+    const irrfrange4 = {min: 3751.06, max: 4664.68, rate: 22.5, deduction: 636.13}
+    const irrfrange5 = {min: 4664.69,               rate: 27.5, deduction: 869.36}
 
     // Makes dependent deduction
     const dependent_value = 189.59
@@ -81,25 +68,19 @@ function compute() {
     let irrf_base = input_salary - inss_contribution - dependent_deduction
 
     // Finds where IRRF base is in IRRF range and calculates IRRF value
-    
-    
-    element('error_msg').innerHTML = `<br>INSS: ${inss_contribution}<br>`
-    element('error_msg').innerHTML = `<br>INSS: ${irrf}<br>`
-    
-    /*
-    let irrf = 0
-    if (irrf_base <= irrf_range[0]) {
-        irrf = (irrf_base * irrf_rate[0] / 100) - irrf_deduction[0]
-    } else if (irrf_base <= irrf_range[1]) {
-        irrf = (irrf_base * irrf_rate[1] / 100) - irrf_deduction[1]
-    } else if (irrf_base <= irrf_range[2]) {
-        irrf = (irrf_base * irrf_rate[2] / 100) - irrf_deduction[2]
-    } else if (irrf_base <= irrf_range[3]) {
-        irrf = (irrf_base * irrf_rate[3] / 100) - irrf_deduction[3]
+    if (irrf_base <= irrfrange1.max) {
+        var irrf = (irrf_base * irrfrange1.rate / 100) - irrfrange1.deduction
+    } else if (irrf_base <= irrfrange2.max) {
+        var irrf = (irrf_base * irrfrange2.rate / 100) - irrfrange2.deduction
+    } else if (irrf_base <= irrfrange3.max) {
+        var irrf = (irrf_base * irrfrange3.rate / 100) - irrfrange3.deduction
+    } else if (irrf_base <= irrfrange4.max) {
+        var irrf = (irrf_base * irrfrange4.rate / 100) - irrfrange4.deduction
     } else {
-        irrf = (irrf_base * irrf_rate[4] / 100) - irrf_deduction[4]
+        var irrf = (irrf_base * irrfrange5.rate / 100) - irrfrange5.deduction
     }
     
+    //element('error_msg').innerHTML = `<br>INSS: ${inss_contribution}<br>IRRF: ${irrf}`
 
     // Calculates Net Salary
     let total_discounts = input_discount + Number(inss_contribution) + irrf
@@ -137,5 +118,4 @@ function compute() {
     //window.document.getElementById('input_salary').value = ''
     //window.document.getElementById('input_discount').value = ''
     //window.document.getElementById('input_dependent').value = ''
-*/
 }

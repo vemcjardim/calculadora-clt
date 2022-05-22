@@ -25,6 +25,7 @@ function compute() {
     element('show_table').style.display = 'table'
     
     // Gets values from inputs
+    var input_salary = element('input_salary')
     let input_discount = element('input_discount')
     let input_dependent = element('input_dependent')
 

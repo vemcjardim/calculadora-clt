@@ -1,22 +1,32 @@
+// Helper function
+function element(id) {
+    return window.document.getElementById(id)
+}
+
+// Clears all to start again
+function reset() {
+    element('show_table').style.display = 'none'
+}
+
 // Check if at least salary was input
 function check() {
-    let input_salary = window.document.getElementById('input_salary')
+    var input_salary = element('input_salary')
     if (input_salary.value) {
         compute()
     } else {
-        window.document.getElementById('error_msg').innerHTML = `<p>Digite ao menos o valor do salário</p>`
+        element('error_msg').innerHTML = `<p>Digite ao menos o valor do salário</p>`
     }
 }
 
 // Calculates net salary
 function compute() {
     // Hides error message and shows table with results
-    window.document.getElementById('error_msg').style.display = 'none'
-    window.document.getElementById('show_table').style.display = 'table'
+    element('error_msg').style.display = 'none'
+    element('show_table').style.display = 'table'
     
     // Gets values from inputs
-    let input_discount = window.document.getElementById('input_discount')
-    let input_dependent = window.document.getElementById('input_dependent')
+    let input_discount = element('input_discount')
+    let input_dependent = element('input_dependent')
 
     // Turns inputs into numbers
     input_salary = Number(input_salary.value)
@@ -87,29 +97,27 @@ function compute() {
 
     // Shows results
         // First line
-        window.document.getElementById('show_gross_salary_percent').innerHTML = `100 %`
-        window.document.getElementById('show_gross_salary').innerHTML = input_salary.toFixed(2)
+        element('show_gross_salary_percent').innerHTML = `100 %`
+        //element('show_gross_salary').innerHTML = input_salary.toFixed(2)
+        element('show_gross_salary').innerHTML = input_salary.toFixed(2)
         // Second line
-        window.document.getElementById('show_discounts_percent').innerHTML = `${discounts_percent} %`
-        window.document.getElementById('show_discounts').innerHTML = input_discount.toFixed(2)
+        element('show_discounts_percent').innerHTML = `${discounts_percent} %`
+        element('show_discounts').innerHTML = input_discount.toFixed(2)
         // Third line
-        window.document.getElementById('show_inss_percent').innerHTML = `${inss_percent} %`
-        window.document.getElementById('show_inss').innerHTML = inss_contribution
+        element('show_inss_percent').innerHTML = `${inss_percent} %`
+        element('show_inss').innerHTML = inss_contribution
         // 4th line
-        window.document.getElementById('show_irrf_percent').innerHTML = `${irrf_percent} %`
-        window.document.getElementById('show_irrf').innerHTML = irrf.toFixed(2)
+        element('show_irrf_percent').innerHTML = `${irrf_percent} %`
+        element('show_irrf').innerHTML = irrf.toFixed(2)
         // 5th line
-        window.document.getElementById('show_total_discounts_percent').innerHTML = `${total_discounts_percent} %`
-        window.document.getElementById('show_total_discounts').innerHTML = total_discounts.toFixed(2)
+        element('show_total_discounts_percent').innerHTML = `${total_discounts_percent} %`
+        element('show_total_discounts').innerHTML = total_discounts.toFixed(2)
         // 6th line
-        window.document.getElementById('show_net_salary_percent').innerHTML = `${net_salary_percent} %`
-        window.document.getElementById('show_net_salary').innerHTML = net_salary.toFixed(2)
-}
-
-// Clears all to start again
-function clear() {
-    window.document.getElementById('input_salary').value = ''
-    window.document.getElementById('input_discount').value = ''
-    window.document.getElementById('input_dependent').value = ''
-    window.document.getElementById('show_table').style.display = 'none'
+        element('show_net_salary_percent').innerHTML = `${net_salary_percent} %`
+        element('show_net_salary').innerHTML = net_salary.toFixed(2)
+    
+    // Clear inputs
+    //window.document.getElementById('input_salary').value = ''
+    //window.document.getElementById('input_discount').value = ''
+    //window.document.getElementById('input_dependent').value = ''
 }

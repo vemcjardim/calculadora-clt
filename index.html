@@ -10,7 +10,7 @@
 </head>
 <body>
     <section>
-        <h1>Calculadora CLT</h1>
+        <h1 id="title">Calculadora CLT</h1>
         <h3>Salário líquido</h3>
         <p>O cálculo do salário líquido leva em consideração os descontos de alíquotas de INSS, conforme tabela com faixas de acordo com o salário bruto, bem como as faixas de base de cálculos do IRRF.</p>
                 
@@ -24,7 +24,7 @@
         <input type="number" id="input_dependent" name="dependentes" class="textbox"><br>
 
         <input type="button" value="Calcular" class="button_large" onclick="check()">
-        <input type="button" value="Limpar" class="button_small" onclick="clear()">
+        <input type="button" value="Limpar" class="button_small" onclick="reset()">
 
         <div id="error_msg"></div>
     </section>

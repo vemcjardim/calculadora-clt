@@ -1,6 +1,14 @@
-// Helper function
+// Helper functions
 function element(id) {
     return window.document.getElementById(id)
+}
+
+function currency(variable) {
+    return variable.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})
+}
+
+function percent(variable) {
+    return variable.toLocaleString("pt-BR", {style:"percent", currency:"BRL"})
 }
 
 // Clears all to start again
@@ -81,39 +89,52 @@ function compute() {
         var irrf = (irrf_base * irrfrange5.rate / 100) - irrfrange5.deduction
     }
     
-    //element('error_msg').innerHTML = `<br>INSS: ${inss_contribution}<br>IRRF: ${irrf}`
-
     // Calculates Net Salary
     let total_discounts = input_discount + Number(inss_contribution) + irrf
     let net_salary = input_salary - inss_contribution - irrf - input_discount
-
+    
     // Calculates percents
-    let discounts_percent = (input_discount / input_salary * 100).toFixed(2)
-    let inss_percent = (inss_contribution / input_salary * 100).toFixed(2)
-    let irrf_percent = (irrf / input_salary * 100).toFixed(2)
-    let total_discounts_percent = (total_discounts / input_salary * 100).toFixed(2)
-    let net_salary_percent = (net_salary / input_salary * 100).toFixed(2)
+    let discounts_percent = (input_discount / input_salary)
+    let inss_percent = (inss_contribution / input_salary)
+    let irrf_percent = (irrf / input_salary)
+    let total_discounts_percent = (total_discounts / input_salary)
+    let net_salary_percent = (net_salary / input_salary)
+
+    // Format numbers to currencies
+    input_salary = currency(input_salary)
+    input_discount = currency(input_discount)
+    inss_contribution = currency(inss_contribution)
+    irrf = currency(irrf)    
+    total_discounts = currency(total_discounts)
+    net_salary = currency(net_salary)
+
+    // Format percents
+    discounts_percent = percent(discounts_percent)
+    inss_percent = percent(inss_percent)
+    irrf_percent = percent(irrf_percent)
+    total_discounts_percent = percent(total_discounts_percent)
+    net_salary_percent = percent(net_salary_percent)
 
     // Shows results
         // First line
         element('show_gross_salary_percent').innerHTML = `100 %`
         //element('show_gross_salary').innerHTML = input_salary.toFixed(2)
-        element('show_gross_salary').innerHTML = input_salary.toFixed(2)
+        element('show_gross_salary').innerHTML = input_salary
         // Second line
-        element('show_discounts_percent').innerHTML = `${discounts_percent} %`
-        element('show_discounts').innerHTML = input_discount.toFixed(2)
+        element('show_discounts_percent').innerHTML = discounts_percent
+        element('show_discounts').innerHTML = input_discount
         // Third line
-        element('show_inss_percent').innerHTML = `${inss_percent} %`
+        element('show_inss_percent').innerHTML = inss_percent
         element('show_inss').innerHTML = inss_contribution
         // 4th line
-        element('show_irrf_percent').innerHTML = `${irrf_percent} %`
-        element('show_irrf').innerHTML = irrf.toFixed(2)
+        element('show_irrf_percent').innerHTML = irrf_percent
+        element('show_irrf').innerHTML = irrf
         // 5th line
-        element('show_total_discounts_percent').innerHTML = `${total_discounts_percent} %`
-        element('show_total_discounts').innerHTML = total_discounts.toFixed(2)
+        element('show_total_discounts_percent').innerHTML = total_discounts_percent
+        element('show_total_discounts').innerHTML = total_discounts
         // 6th line
-        element('show_net_salary_percent').innerHTML = `${net_salary_percent} %`
-        element('show_net_salary').innerHTML = net_salary.toFixed(2)
+        element('show_net_salary_percent').innerHTML = net_salary_percent
+        element('show_net_salary').innerHTML = net_salary
     
     // Clear inputs
     //window.document.getElementById('input_salary').value = ''

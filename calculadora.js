@@ -11,11 +11,6 @@ function percent(variable) {
     return variable.toLocaleString("pt-BR", {style:"percent", currency:"BRL"})
 }
 
-// Clears all to start again
-function reset() {
-    element('show_table').style.display = 'none'
-}
-
 // Check if at least salary was input
 function check() {
     var input_salary = element('input_salary')
@@ -135,9 +130,13 @@ function compute() {
         // 6th line
         element('show_net_salary_percent').innerHTML = net_salary_percent
         element('show_net_salary').innerHTML = net_salary
-    
-    // Clear inputs
-    //window.document.getElementById('input_salary').value = ''
-    //window.document.getElementById('input_discount').value = ''
-    //window.document.getElementById('input_dependent').value = ''
+}
+
+// Clears all to start again
+function reset() {
+    element('error_msg').innerHTML = ``
+    element('show_table').style.display = 'none'
+    element('input_salary').value = ''
+    element('input_discount').value = ''
+    element('input_dependent').value = ''
 }
